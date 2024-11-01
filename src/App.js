@@ -1,23 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
 
+function NavBar() {
+  const style1 = {
+    marginLeft: "auto",
+    display: "flex", 
+    paddingRight: "20px"
+  }
+
+  return (
+      <nav className ="nav">
+        <div style={{fontWeight: "bold"}}>FindFriendsNU</div>
+        <div className ="searchbar">
+          Search Bar
+        </div>
+        <div style={style1}>
+          <div style={{cursor: "pointer"}}>Home</div>
+          <div style={{cursor: "pointer", marginLeft: "10px"}}>Friends</div>
+        </div>
+      </nav>
+  );
+}
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload :D.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
     </div>
   );
 }
