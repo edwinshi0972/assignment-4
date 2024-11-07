@@ -40,6 +40,29 @@ const SUGGESTEDFRIENDSINFO = [
   {
     username: "Person E",
     shared: 1,
+  },
+  {
+    username: "Person F",
+    shared: 2,
+  }
+]
+
+const FRIENDSINFO = [
+  {
+    friendname: "Friend 1",
+    interests: "CS, Math",
+  },
+  {
+    friendname: "Friend 2",
+    interests: "Chemistry",
+  },
+  {
+    friendname: "Friend 3",
+    interests: "Machine Learning, Physics",
+  },
+  {
+    friendname: "Friend 4",
+    interests: "Data Science",
   }
 ]
 
@@ -51,6 +74,31 @@ function SuggestedFriend(props) {
           <div style={{fontWeight: "bold"}}>{props.username}</div>
           <div style={{fontSize: "12px"}}>{props.shared} Shared Interests</div>
         </div>
+    </div>
+  );
+}
+
+function Friend(props) {
+  return (
+    <div className ="friend">
+      <img src = {require('./small-default-avatar.png')} alt="default avatar" className ="avatar"/>
+      <div style={{fontSize: "25px"}}>{props.friendname}</div>
+      <div className ="interests">{props.interests}</div>
+    </div>
+  );
+}
+
+function FriendList() {
+  const [friends, setfriends] = useState(FRIENDSINFO);
+  return (
+    <div className = "friend-list">
+      <ul>
+        {friends.map((friendsF) => {
+          return (
+            <Friend friendname={friendsF.friendname} interests={friendsF.interests}/>
+          )
+        })}
+      </ul>
     </div>
   );
 }
@@ -79,6 +127,7 @@ function App() {
       <div className ="friendpageheader">Friends</div>
       <div style={{display: "flex", gap: "25px"}}>
         <SideBar />
+        <FriendList />
       </div>
     </div>
   );
